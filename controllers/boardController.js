@@ -6,20 +6,18 @@ const boardController = {
         const userID = req.params.id
         console.log(userID)
         Users.findById(userID).populate('boards').then(
-            (bbs)=> {res.send(bbs)
-            // (returnedBoards) => {
-            // const board = returnedBoards.boards
-            // console.log(returnedBoards)
-            // res.render('boards/index', { board, userID })
+           (returnedBoards) => {
+            const boards = returnedBoards.boards
+            console.log(returnedBoards)
+            res.render('boards/index', { boards:boards, userID:userID })
         })
-    }
-    // ,
-    // new: (req, res) => {
-    //     const newslinkId = req.params.id
-    //     res.render('comments/new', {newslinkId: newslinkId})
-    // },
+    },
+    new: (req, res) => {
+        const userID = req.params.id
+        res.render('boards/new', {userId:userID})
+    },
     // create: (req, res) => {
-    //     const newslinkId = req.params.id
+    //     const userID = req.params.id
     //     NewsLink.findById(newslinkId)
     //     .then((newslink) => {
     //         Comment.create(req.body)
@@ -32,20 +30,20 @@ const boardController = {
     // },
     // show: (req, res) => {
     //     const commentId = req.params.commentId
-    //     const newsLinkId = req.params.id
+    //     const userID = req.params.id
     //     Comment.findById(commentId).then((comment) => {
-    //         res.render('comments/show', { comment: comment, newsLinkId: newsLinkId })
+    //         res.render('boards/show', { comment: comment, newsLinkId: newsLinkId })
     //     }).catch((err) => {
     //         console.log(err)
     //     })
     // },
     // edit: (req, res) => {
-    //     const newslinkId = req.params.id
+    //     const userID = req.params.id
     //     const commentId = req.params.commentId
-    //     res.render('comments/edit', {newslinkId, commentId})
+    //     res.render('boards/edit', {newslinkId, commentId})
     // },
     // update: (req, res) => {
-    //     const newslinkId = req.params.id
+    //     const userID = req.params.id
     //     const commentId = req.params.commentId
     //     console.log(commentId)
     //     Comment.findByIdAndUpdate(commentId, req.body, {new: true})
@@ -54,7 +52,7 @@ const boardController = {
     //     })
     // },
     // delete: (req, res) => {
-    //     const newslinkId = req.params.id
+    //     const userID = req.params.id
     //     const commentId = req.params.commentId
     //     Comment.findByIdAndDelete(commentId)
     //     .then(() => {

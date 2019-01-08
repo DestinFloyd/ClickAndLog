@@ -2,7 +2,7 @@ Users = require("../models/User")
 
 const userController = {
     index: (req, res) => {
-        Users.find({}).then((user)=> {
+        Users.find({}).populate('boards').then((user)=> {
             console.log(user)
             res.render("users/index", {user:user})
         })
@@ -17,19 +17,18 @@ const userController = {
             res.redirect('/')
         })
     },
-    show: (req, res)=>{
+    show: (req, res) =>{
         const userID = req.params.id
-        Users.findById(userID).then((user)=>{
-            console.log(user)
-            res.render("users/show", {userID:userID})
+        Users.findById(userID).populate('boards').then((user)=>{
+            
+            res.render("users/show", { user})
         })
     }, 
-    edit: (req, res)=>{
+    edit: (req, res) =>{
         const userID = req.params.id
-        // Users.findById(userID).then((user)=>{
-        //     res.render('users/edit',{user:user})
-        // })
-        res.render("users/edit", {userID:userID})
+        Users.findById(userID).then((user)=>{
+        res.render("users/edit", {userID, user})
+        })
     },
     update: (req, res)=>{
         const userID = req.params.id

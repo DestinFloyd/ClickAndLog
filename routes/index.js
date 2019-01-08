@@ -13,7 +13,7 @@ router.patch('/:id', userController.update)
 router.delete('/:id', userController.delete)
 
 router.get('/:id/board', boardController.index)
-// router.get('/:id/board/new', boardController.new)
+router.get('/:id/board/new', boardController.new)
 // router.post('/:id/board', boardController.create)
 // router.get('/:id/board/:commentId', boardController.show)
 // router.get('/:id/board/:commentId/edit', boardController.edit)

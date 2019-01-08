@@ -1,5 +1,8 @@
-
 {{#each user}}
-<a href={{_id}}><h3>{{name}}</h3></a>
-<p>{{boards}}</p>
+<a href={{_id}}>
+    <h3>{{name}}</h3>
+</a>
+    {{#each boards}}
+        <p>{{name}}</p>
+    {{/each}}
 {{/each}}

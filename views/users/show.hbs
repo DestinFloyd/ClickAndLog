@@ -1,8 +1,7 @@
 <p>   THIS IS A SHOW PAGE</p>
-<h3>{{userID}}</h3>
-
-<a href="/{{userID}}/edit"><button>Edit</button></a>
-
-<form action="/{{userID}}?_method=DELETE" method="POST">
+{{user.name}}
+<a href="/{{user._id}}/edit"><button>Edit</button></a>
+{{userID}}
+<form action="/{{user._id}}?_method=DELETE" method="POST">
 <button type="submit">Delete</button>
 </form>

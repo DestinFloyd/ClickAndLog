@@ -1,19 +1,14 @@
-{{!-- {{#each }}
-<a href={{_id}}><h3>{{name}}</h3></a>
-<p>{{boards}}</p>
-{{/each}}
- --}}
-{{!-- boards, userID  --}}
+
 <p>BOARDS INDEX!!</p>
 <div>
-    <a href="/{{userID}}"><button >Back</button></a>
-    <a href="/{{userID}}/comments/new"><button>New Comment</button></a>
+    <a href="/{{userID}}"><button>Back</button></a>
     {{#each boards}}
     <div>
-        <div >
+        <div>
             <h3>{{name}}</h3>
-            <p>{{tasks}}</p>
-            {{!-- <a href="/{{../newslinkId}}/comments/{{_id}}"><button class="btn">Click me</button></a> --}}
+            {{#each tasks}}
+            <p>{{name}}</p>
+            {{/each}}
         </div>
     </div>
     {{/each}}
