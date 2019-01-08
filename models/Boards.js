@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const Board = new Schema({
     name: String,
-    task: [{
+    tasks: [{
         type: Schema.Types.ObjectId,
         ref: 'Task'
     }]

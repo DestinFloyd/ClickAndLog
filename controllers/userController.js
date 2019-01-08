@@ -1,8 +1,10 @@
 Users = require("../models/User")
+// Board = require("../models/Boards")
+Task = require("../models/Task")
 
 const userController = {
     index: (req, res) => {
-        Users.find({}).then(user=> {
+        Users.find({}).populate("boards").then(user=> {
             res.send(user)
         })
     }

@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const Task = new Schema({
     name: String,
     details: String,
-    link: String
+    done: Boolean
 });
 
 module.exports = mongoose.model("Task", Task)
