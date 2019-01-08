@@ -1,8 +1,12 @@
-const mongoose = require('../db/connection')
+const mongoose = require("../db/connection")
 const Schema = mongoose.Schema
 
 const User = new Schema({
     name: String,
+    comments: [{
+        type: Schema.Types.ObjectId,
+        ref: "Board"
+    }]
 
 });
 
