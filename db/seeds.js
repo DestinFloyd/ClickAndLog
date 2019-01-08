@@ -1,35 +1,17 @@
 const User = require('../models/User')
 const Board = require('../models/Boards')
 const Task = require('../models/Task')
-// let newUsers = [
-//     {
-//       name: 'Stehaine',
-//     },
-//     {
-//       name: 'Ashley',
-//     },
-//     {
-//       name: 'Claire',
-//     },
-//     {
-//       name: 'Phillip',
-//     }
-//   ]
-//   User.deleteMany({}).then(()=> {
-//     User.create(newUsers).then(user => {
-//       console.log('Saved User-s', user)
-//     })
-//   })
 
-Task.deleteMany({}).then(()=>{
-    Board.deleteMany({})
-}).then(()=>{
-    User.deleteMany({})
-})
+// Task.deleteMany({})
+// Board.deleteMany({})
+
+User.deleteMany({})
+    .then(() => Board.deleteMany({}))
+    .then(() => Task.deleteMany({}))
     .then(() => {
         console.log("starting seeds")
         return User.create({
-            name: "Stephaine",
+            name: "Sarah",
             boards: []
         }).then((user) => {
             const newBoard = Board.create({
@@ -45,29 +27,28 @@ Task.deleteMany({}).then(()=>{
 
             }).then((boardName) => {
                 user.boards.push(boardName)
-            }).then((taskName) => {
+                console.log("USER BOARD", user.boards[0])
+            }).then(() => {
                 const newTask = Task.create({
                     name: "Check off crash carts",
                     details: "All 10 items",
                     done: true
                 }).then((taskName) => {
                     user.boards[0].tasks.push(taskName)
-                }).then((taskName) => {
-                    const newTask2 = Task.create({
+                })
+                const newTask2 = Task.create({
                         name: "Check off medication cabinets",
                         details: "All 50 items",
                         done: false
-                    }).then((taskName) => {
-                        user.boards[1].tasks.push(taskName)
-                    })
-
-
-                    Promise.all([newBoard, newBoard2], [newTask, newTask2])
-                        .then(() => {
-                            user.save()
-                            console.log("promise done")
-                        })
+                }).then((taskName) => {
+                        console.log(user, 'hey')
+                        user.boards[0].tasks.push(taskName)
                 })
+                    Promise.all([newTask, newTask2], [newBoard, newBoard2])
+                    .then(() => {
+                            user.save()
+                            console.log(newBoard, newTask)
+                    })
             })
         })
     })
