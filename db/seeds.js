@@ -21,7 +21,11 @@ const Task = require('../models/Task')
 //     })
 //   })
 
-User.deleteMany({})
+Task.deleteMany({}).then(()=>{
+    Board.deleteMany({})
+}).then(()=>{
+    User.deleteMany({})
+})
     .then(() => {
         console.log("starting seeds")
         return User.create({
