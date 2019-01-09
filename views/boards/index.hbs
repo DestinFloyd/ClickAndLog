@@ -2,20 +2,23 @@
 <div>
     <a href="/{{userID}}"><button>Back</button></a>
     <a href="/{{userID}}/board/new"><button>New Board</button></a>
-
+    
     {{#each boards}}
 
     <div>
         <div>
 
+            {{!-- (these are the 3 links that'll work on and off since the error will change ) bc the diff errors I keep recieving --}}
             {{!-- <a href="../{{userID}}board/{{_id}}"> --}}
-            <a href="./{{userID}}board/{{_id}}">
             {{!-- <a href="./{{userID}}{{_id}}"> --}}
-                <h3>{{name}}</h3>
-            </a>
-            {{#each tasks}}
-            <p>{{name}}</p>
-            {{/each}}
+            {{!-- <a href="./{{userID}}board/{{_id}}"> --}}
+            {{!-- What it should be is ./{{userID}}/board/{{_id}} --}}
+                    <a href="./{{userID}}/board/{{_id}}"></a>
+                        <h3>{{name}}</h3>
+                    </a>
+                    {{#each tasks}}
+                    <p>{{name}}</p>
+                    {{/each}}
         </div>
     </div>
     {{/each}}
