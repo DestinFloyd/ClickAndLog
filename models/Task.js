@@ -4,8 +4,7 @@ const Schema = mongoose.Schema
 
 const Task = new Schema({
     name: String,
-    details: String,
-    done: Boolean
+    details: String
 });
 
 module.exports = mongoose.model("Task", Task)
