@@ -30,28 +30,30 @@ const boardController = {
         })
     },
     show: (req, res) => {
-        const boardID = req.params.boardID
+        const boardID = req.params.boardId
         const userID = req.params.id
         Board.findById(boardID).then((board) => {
+            console.log(board + "returnnnnn boardddddddddd")
             res.render('boards/show', {board:board, userID:userID })
         }).catch((err) => {
             console.log(err)
         })
     },
-    // edit: (req, res) => {
-    //     const userID = req.params.id
-    //     const commentId = req.params.commentId
-    //     res.render('board/edit', {newslinkId, commentId})
-    // },
-    // update: (req, res) => {
-    //     const userID = req.params.id
-    //     const commentId = req.params.commentId
-    //     console.log(commentId)
-    //     Comment.findByIdAndUpdate(commentId, req.body, {new: true})
-    //     .then((comment) => {
-    //         res.redirect(`/${newslinkId}/comments/${commentId}`)
-    //     })
-    // },
+    edit: (req, res) => {
+        console.log("YAY")
+        const userID = req.params.id
+        const boardID = req.params.boardId
+        res.render('boards/edit', {userID, boardID})
+    },
+    update: (req, res) => {
+        const userID = req.params.id
+        const boardID = req.params.boardId
+        // console.log(boardID)
+        Board.findByIdAndUpdate(boardID, req.body, {new: true})
+        .then((board) => {
+            res.redirect(`/${userID}/board/${boardID}`)
+        })
+    },
     // delete: (req, res) => {
     //     const userID = req.params.id
     //     const commentId = req.params.commentId

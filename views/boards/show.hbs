@@ -1,6 +1,12 @@
-<h1>{{board}}</h1>
-<a href="/{{userId}}/board/{{board._id}}/edit"><button>Edit Board</button></a>
-
-<form action="/{{userId}}/board/{{board._id}}?_method=DELETE" method="POST">
+<p>BOARDDDDD SHOW PAGE</p>
+{{userID}}
+{{board.name}}
+{{board.tasks}}
+{{board._id}}
+<a href="/{{userID}}/board{{_id}}/edit"><button>Edit Board</button></a>
+{{!-- <button>Edit Board</button> --}}
+{{!-- ?_method=PATCH" --}}
+{{!-- <a href="/{{newsLinkId}}/comments/{{comment._id}}/edit"><button class="btn">Edit Comment</button></a> --}}
+<form action="/{{userID}}/board/{{board._id}}?_method=DELETE" method="POST">
     <button type="submit">Delete This Board</button>
 </form>
