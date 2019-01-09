@@ -2,6 +2,7 @@ Users = require("../models/User")
 
 const userController = {
     index: (req, res) => {
+        
         Users.find({}).populate('boards').then((user)=> {
             console.log(user)
             res.render("users/index", {user:user})
