@@ -15,16 +15,16 @@ const boardController = {
         res.render('boards/new', {userID:userID})
     },
     create: (req, res) => {
-        console.log("TRYIIIIING TO CREATTTTTE")
+        
         const userID = req.params.id
         Users.findById(userID).populate('boards')
         .then((returnedBoards) => {
-            console.log(returnedBoards + "first thennnnnn")
+            
             Board.create(req.body)
             .then((board) => {
                 returnedBoards.boards.push(board)
                 returnedBoards.save()
-                console.log(userID + "USERRRRRRRIDDDDDDDDDDD")
+                
                 res.redirect(`/${userID}/board`)
             })
         })
@@ -33,14 +33,14 @@ const boardController = {
         const boardID = req.params.boardId
         const userID = req.params.id
         Board.findById(boardID).then((board) => {
-            console.log(board + "returnnnnn boardddddddddd")
+            
             res.render('boards/show', {board:board, userID:userID })
         }).catch((err) => {
             console.log(err)
         })
     },
     edit: (req, res) => {
-        console.log("YAY")
+        
         const userID = req.params.id
         const boardID = req.params.boardId
         res.render('boards/edit', {userID, boardID})
@@ -54,14 +54,14 @@ const boardController = {
             res.redirect(`/${userID}/board/${boardID}`)
         })
     },
-    // delete: (req, res) => {
-    //     const userID = req.params.id
-    //     const commentId = req.params.commentId
-    //     Comment.findByIdAndDelete(commentId)
-    //     .then(() => {
-    //         res.redirect(`/${newslinkId}/comments`)
-    //     })
-    // }
+    delete: (req, res) => {
+        const userID = req.params.id
+        const boardId = req.params.boardId
+        Board.findByIdAndDelete(boardId)
+        .then(() => {
+            res.redirect(`/${userID}/board`)
+        })
+    }
 }
 
 module.exports = boardController

@@ -18,7 +18,7 @@ router.post('/:id/board', boardController.create)
 router.get('/:id/board/:boardId', boardController.show)
 router.get('/:id/board/:boardId/edit', boardController.edit)
 router.patch('/:id/board/:boardId', boardController.update)
-// router.delete('/:id/board/:boardId', boardController.delete)
+router.delete('/:id/board/:boardId', boardController.delete)
 
 
 

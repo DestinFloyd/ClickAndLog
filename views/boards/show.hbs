@@ -1,10 +1,12 @@
 <p>BOARDDDDD SHOW PAGE</p>
-{{userID}}
+{{userID }}"USER ID"
 {{!-- {{board.name}} --}}
 {{!-- {{board.tasks}} --}}
-{{board._id}}
+{{board._id}}"Board_id"
 {{boardID}}
-<a href="/{{userID}}/board/{{board}}/edit"><button>Edit Board</button></a>
+{{board.name}}
+<a href="/{{userID}}/board/"><button>Back to Boards</button> </a>
+<a href="/{{userID}}/board/{{board._id}}/edit"><button>Edit Board</button></a>
 {{!-- <button>Edit Board</button> --}}
 {{!-- ?_method=PATCH" --}}
 {{!-- <a href="/{{newsLinkId}}/comments/{{comment._id}}/edit"><button class="btn">Edit Comment</button></a> --}}
