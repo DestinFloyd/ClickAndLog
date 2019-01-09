@@ -2,10 +2,11 @@
 <p>BOARDS INDEX!!</p>
 <div>
     <a href="/{{userID}}"><button>Back</button></a>
+     <a href="/{{userID}}/board/new"><button>New Board</button></a>
     {{#each boards}}
     <div>
         <div>
-            <h3>{{name}}</h3>
+           <a href="/{{userID}}/board/{{_id}}"> <h3>{{name}}</h3></a>
             {{#each tasks}}
             <p>{{name}}</p>
             {{/each}}

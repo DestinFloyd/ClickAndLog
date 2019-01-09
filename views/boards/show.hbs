@@ -1,0 +1,6 @@
+<h1>{{board}}</h1>
+<a href="/{{userId}}/board/{{board._id}}/edit"><button>Edit Board</button></a>
+
+<form action="/{{userId}}/board/{{board._id}}?_method=DELETE" method="POST">
+    <button type="submit">Delete This Board</button>
+</form>

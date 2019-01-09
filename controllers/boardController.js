@@ -4,43 +4,44 @@ const Board = require('../models/Boards')
 const boardController = {
     index: (req, res) => {
         const userID = req.params.id
-        console.log(userID)
         Users.findById(userID).populate('boards').then(
            (returnedBoards) => {
             const boards = returnedBoards.boards
-            console.log(returnedBoards)
             res.render('boards/index', { boards:boards, userID:userID })
         })
     },
     new: (req, res) => {
         const userID = req.params.id
-        res.render('boards/new', {userId:userID})
+        res.render('boards/new', {userID:userID})
     },
-    // create: (req, res) => {
-    //     const userID = req.params.id
-    //     NewsLink.findById(newslinkId)
-    //     .then((newslink) => {
-    //         Comment.create(req.body)
-    //         .then((comment) => {
-    //             newslink.comments.push(comment)
-    //             newslink.save()
-    //             res.redirect(`/${newslink._id}/comments`)
-    //         })
-    //     })
-    // },
-    // show: (req, res) => {
-    //     const commentId = req.params.commentId
-    //     const userID = req.params.id
-    //     Comment.findById(commentId).then((comment) => {
-    //         res.render('boards/show', { comment: comment, newsLinkId: newsLinkId })
-    //     }).catch((err) => {
-    //         console.log(err)
-    //     })
-    // },
+    create: (req, res) => {
+        console.log("TRYIIIIING TO CREATTTTTE")
+        const userID = req.params.id
+        Users.findById(userID).populate('boards')
+        .then((returnedBoards) => {
+            console.log(returnedBoards + "first thennnnnn")
+            Board.create(req.body)
+            .then((board) => {
+                returnedBoards.boards.push(board)
+                returnedBoards.save()
+                console.log(userID + "USERRRRRRRIDDDDDDDDDDD")
+                res.redirect(`/${userID}/board`)
+            })
+        })
+    },
+    show: (req, res) => {
+        const boardID = req.params.boardID
+        const userID = req.params.id
+        Board.findById(boardID).then((board) => {
+            res.render('boards/show', {board:board, userID:userID })
+        }).catch((err) => {
+            console.log(err)
+        })
+    },
     // edit: (req, res) => {
     //     const userID = req.params.id
     //     const commentId = req.params.commentId
-    //     res.render('boards/edit', {newslinkId, commentId})
+    //     res.render('board/edit', {newslinkId, commentId})
     // },
     // update: (req, res) => {
     //     const userID = req.params.id
