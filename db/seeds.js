@@ -41,15 +41,15 @@ const task8 = new Task({
 
 const board1 = new Board({
     name: "Crash Cart Checklist",
-    task:[task1, task2, task3, task4]
+    tasks:[task1, task2, task3, task4]
 })
 const board2 = new Board({
     name: "Moring Checklist",
-    task:[task5, task6 ]
+    tasks:[task5, task6 ]
 })
 const board3 = new Board({
     name: "Other Checklist",
-    task: [task7, task8]
+    tasks: [task7, task8]
 })
 
 const stephaine = new User({
@@ -62,9 +62,9 @@ const ashley = new User({
 })
 
 console.log(ashley)
-User.deleteMany({})
-    .then(() => Board.deleteMany({}))
-    .then(() => Task.deleteMany({}))
+User.remove({})
+    .then(() => Board.remove({}))
+    .then(() => Task.remove({}))
     .then(() => Task.insertMany([task1, task2, task3, task4, task5, task6, task7, task8]))
     .then(() => Board.insertMany([board1, board2, board3]))
     .then(() => stephaine.save())

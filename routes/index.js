@@ -20,6 +20,12 @@ router.get('/:id/board/:boardId/edit', boardController.edit)
 router.patch('/:id/board/:boardId', boardController.update)
 router.delete('/:id/board/:boardId', boardController.delete)
 
-
+router.get('/:id/board/task', taskController.index)
+router.get('/:id/board/:boardId/new', taskController.new)
+router.post('/:id/board/:boardId/task', taskController.create)
+// router.get('/:id/board/:boardId', taskController.show)
+// router.get('/:id/board/:boardId/edit', taskController.edit)
+// router.patch('/:id/board/:boardId', taskController.update)
+// router.delete('/:id/board/:boardId', taskController.delete)
 
 module.exports = router

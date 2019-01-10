@@ -1,15 +1,31 @@
 <p>BOARDDDDD SHOW PAGE</p>
-{{userID }}"USER ID"
-{{!-- {{board.name}} --}}
-{{!-- {{board.tasks}} --}}
-{{board._id}}"Board_id"
+{{!-- {{userID }}
+
+{{board._id}}
 {{boardID}}
-{{board.name}}
+{{board.name}} --}}
+{{userID}}
+{{board._id}}
 <a href="/{{userID}}/board/"><button>Back to Boards</button> </a>
 <a href="/{{userID}}/board/{{board._id}}/edit"><button>Edit Board</button></a>
-{{!-- <button>Edit Board</button> --}}
-{{!-- ?_method=PATCH" --}}
-{{!-- <a href="/{{newsLinkId}}/comments/{{comment._id}}/edit"><button class="btn">Edit Comment</button></a> --}}
+
+<a href="/{{userID}}/board/{{board._id}}/new"><button>Create a New Task</button></a>
+
+{{#each tasks}}
+</br>
+{{name}}:
+</br>
+<p id="demo">{{details}}</p>
+<button onclick="myFunction()">Done</button>
+
+<script>
+function myFunction(){document.getElementById("demo").color = "Red";}
+</script>
+{{/each}}
+
 <form action="/{{userID}}/board/{{board._id}}?_method=DELETE" method="POST">
     <button type="submit">Delete This Board</button>
 </form>
+
+
+

@@ -14,6 +14,7 @@ const userController = {
     create: (req, res) =>{
         Users.create({
             name: req.body.name,
+
         }).then(newLink => {
             res.redirect('/')
         })
@@ -21,8 +22,8 @@ const userController = {
     show: (req, res) =>{
         const userID = req.params.id
         Users.findById(userID).populate('boards').then((user)=>{
-            
-            res.render("users/show", { user})
+            const boards = user.boards
+            res.render("users/show", { boards:boards, user: user ,userID:userID })
         })
     }, 
     edit: (req, res) =>{

@@ -1,12 +1,15 @@
 const Users = require('../models/User')
 const Board = require('../models/Boards')
+const Task = require("../models/Task")
 
 const boardController = {
     index: (req, res) => {
         const userID = req.params.id
         const boardID = req.params.boardId
-        Users.findById(userID).populate('boards').then(
+       
+            Users.findById(userID).populate('boards').then(
            (returnedBoards) => {
+               
             const boards = returnedBoards.boards
             res.render('boards/index', { boards:boards, userID:userID })
         })
@@ -33,9 +36,9 @@ const boardController = {
     show: (req, res) => {
         const boardID = req.params.boardId
         const userID = req.params.id
-        Board.findById(boardID).then((board) => {
-            
-            res.render('boards/show', {board:board, userID:userID })
+        Board.findById(boardID).populate('tasks').then((board) => {
+            const tasks = board.tasks
+            res.render('boards/show', {board:board, tasks:tasks, userID:userID })
         }).catch((err) => {
             console.log(err)
         })
