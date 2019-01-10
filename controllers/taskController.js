@@ -33,16 +33,18 @@ const taskController = {
         }) 
 
     },
-    // show: (req, res) => {
-    //     const boardID = req.params.boardId
-    //     const userID = req.params.id
-    //     Board.findById(boardID).populate('tasks').then((board) => {
-    //         const tasks = board.tasks
-    //         res.render('boards/show', {board:board, tasks:tasks, userID:userID })
-    //     }).catch((err) => {
-    //         console.log(err)
-    //     })
-    // },
+    show: (req, res) => {
+        const boardID = req.params.boardId
+        const userID = req.params.id
+        const taskID = req.params.taskId
+        console.log("HI")
+        // Task.findById(taskID).then((thisTask) => {
+        //     const tasks = thisTask.tasks
+            res.render('task/show')
+        // }).catch((err) => {
+        //     console.log(err)
+        // })
+    },
     // edit: (req, res) => {
         
     //     const userID = req.params.id
@@ -58,14 +60,15 @@ const taskController = {
     //         res.redirect(`/${userID}/board/${boardID}`)
     //     })
     // },
-    // delete: (req, res) => {
-    //     const userID = req.params.id
-    //     const boardId = req.params.boardId
-    //     Board.findByIdAndDelete(boardId)
-    //     .then(() => {
-    //         res.redirect(`/${userID}/board`)
-    //     })
-    // }
+    delete: (req, res) => {
+        const userID = req.params.id
+        const boardID = req.params.boardId
+        const taskID = req.params.taskId
+        Task.findByIdAndDelete(taskID)
+        .then(() => {
+            res.redirect(`/${userID}/board/${boardID}`)
+        })
+    }
 }
 
 module.exports = taskController

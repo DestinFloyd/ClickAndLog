@@ -1,11 +1,6 @@
 <p>BOARDDDDD SHOW PAGE</p>
-{{!-- {{userID }}
 
-{{board._id}}
-{{boardID}}
-{{board.name}} --}}
-{{userID}}
-{{board._id}}
+
 <a href="/{{userID}}/board/"><button>Back to Boards</button> </a>
 <a href="/{{userID}}/board/{{board._id}}/edit"><button>Edit Board</button></a>
 
@@ -16,11 +11,14 @@
 {{name}}:
 </br>
 <p id="demo">{{details}}</p>
-<button onclick="myFunction()">Done</button>
 
-<script>
+<form action="/{{../userID}}/board/{{../board._id}}/{{_id}}?_method=DELETE" method="POST">
+    <button type="submit">Delete &#x21e7</button> 
+</form><button onclick="myFunction()">Done &#x21e7</button>
+
+{{!-- <script>
 function myFunction(){document.getElementById("demo").color = "Red";}
-</script>
+</script> --}}
 {{/each}}
 
 <form action="/{{userID}}/board/{{board._id}}?_method=DELETE" method="POST">
