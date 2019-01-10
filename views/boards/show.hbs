@@ -7,22 +7,27 @@
 <a href="/{{userID}}/board/{{board._id}}/new"><button>Create a New Task</button></a>
 
 {{#each tasks}}
+
 </br>
 {{name}}:
 </br>
-<p id="demo">{{details}}</p>
 
+<p> {{details}}</p>
+
+
+<button class="doneButton" >Done &#x21e7</button>
 <form action="/{{../userID}}/board/{{../board._id}}/{{_id}}?_method=DELETE" method="POST">
     <button type="submit">Delete &#x21e7</button> 
-</form><button onclick="myFunction()">Done &#x21e7</button>
+</form>
 
-{{!-- <script>
-function myFunction(){document.getElementById("demo").color = "Red";}
-</script> --}}
 {{/each}}
 
 <form action="/{{userID}}/board/{{board._id}}?_method=DELETE" method="POST">
     <button type="submit">Delete This Board</button>
+</form>
+<form action="">
+    <input type="text" placeholder="Completed By:">
+    <input type="date" >
 </form>
 
 

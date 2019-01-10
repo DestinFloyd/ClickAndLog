@@ -1,8 +1,10 @@
 {{#each user}}
-<a href={{_id}}>
+{{!-- <a href="/{{user._id}}/board"><button > See all Boards</button> </a> --}}
+<a href='{{_id}}/board'>
     <h3>{{name}}</h3>
 </a>
-    {{#each boards}}
+
+    {{!-- {{#each boards}} 
         <p>{{name}}</p>
-    {{/each}}
+    {{/each}} --}}
 {{/each}}
