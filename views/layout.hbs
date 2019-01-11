@@ -14,16 +14,30 @@
 </head>
 
 <body>
-  <nav class="navbar" role="navigation">
+  <section class="hero is-info">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-large">
+          Click & Log
+        </h1>
+        <h2 class="subtitle">
+          Create forms, complete forms, & log forms all in one easy location!
+        </h2>
+      </div>
+    </div>
+  </section>
+
+
+  <nav class="navbar is-light" role="navigation">
     <div class="navbar-start">
-  
-    <a class="navbar-item" href="/">Home</a>
-    <a class="navbar-item" href="/new">NewUser</a>
-    <a class="navbar-item"href="/logs">Logs</a>
-  
-  </div>
-</nav> 
- {{{body}}}
+
+      <a class="navbar-item" href="/">Home</a>
+      <a class="navbar-item" href="/new">NewUser</a>
+      <a class="navbar-item" href="/logs">Logs</a>
+
+    </div>
+  </nav>
+  {{{body}}}
   <script>
     $(".doneButton").on("click", function () { $(this).prev("p").css("color", "red") })
   </script>

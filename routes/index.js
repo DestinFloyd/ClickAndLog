@@ -4,6 +4,7 @@ const userController = require("../controllers/userController")
 const boardController = require('../controllers/boardController')
 const taskController = require('../controllers/taskController')
 const logController = require('../controllers/logsController')
+
 router.get('/', userController.index)
 router.post('/', userController.create)
 router.get('/new', userController.new)
@@ -30,7 +31,5 @@ router.post('/:id/board/:boardId/task', taskController.create)
 router.get('/:id/board/:boardId/:taskId', taskController.show)
 router.delete('/:id/board/:boardId/:taskId', taskController.delete)
 
-
-// router.get('/:id/board/:boardId/logs/new', logController.new)
 
 module.exports = router

@@ -1,8 +1,14 @@
-<h1>Logs</h1>
+<p style="font-weight:bold;text-align:center">** New sorting & search methods for logs coming soon! **</p>
 {{#each logs }}
-<p>completedBy: {{completedBy}}</p>
-<p>date: {{date}}</p>
-<p>name: {{name}} </p>
-<p>notes: {{notes}}</p>
+<div class="tile is-parent">
+<article class="tile is-child notification is-info">
 
+<p>Date: {{date}}</p>
+<p>Name: {{name}} </p>
+<p>Completed By: {{completedBy}}</p>
+<p>Notes: {{notes}}</p>
+
+</article>
+ </div>
 {{/each}}
+

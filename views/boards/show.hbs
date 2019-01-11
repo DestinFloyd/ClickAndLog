@@ -1,31 +1,36 @@
-<p>BOARDDDDD SHOW PAGE{{name}}</p>
-
 <a href="/{{userID}}/board/"><button class="button is-small is-link is-rounded">Back to Boards</button> </a>
 <a href="/{{userID}}/board/{{board._id}}/edit"><button class="button is-small is-link is-rounded">Edit Board</button></a>
 <a href="/{{userID}}/board/{{board._id}}/new"><button class="button is-small is-link is-rounded">Create a New Task</button></a>
 
 {{#each tasks}}
-</br>
-{{name}}:
-</br>
-<p> {{details}}</p>
-<button class="doneButton button is-small is-success is-rounded">Done &#x21e7</button>
-<form action="/{{../userID}}/board/{{../board._id}}/{{_id}}?_method=DELETE" method="POST">
-    <button class="button is-small is-danger is-rounded" type="submit">Delete &#x21e7</button>
-</form>
+
+<div class="tile is-parent">
+    <article class="tile is-child notification is-info">
+        <p class="title">{{name}}:</p>
+        <p class="subtitle"> {{details}}</p>
+        <button class="doneButton button is-small is-success is-rounded">Done &#x21e7</button>
+        <form action="/{{../userID}}/board/{{../board._id}}/{{_id}}?_method=DELETE" method="POST">
+            <button class="button is-small is-danger is-rounded" type="submit">Delete &#x21e7</button>
+        </form>
+</div>
 
 {{/each}}
-<div>
-<form action="/logs" method="POST">
-    <input type="text" value="{{name}}" name="name" placeholder="{{name}}" disabled="disabled">
-    <input type="text" name="completedBy" placeholder="Completed By:">
-    <input type="date" name="date">
-    <input type="text" name="notes" placeholder="notes:">
-    <button type="submit">All Done</button>
-    {{!-- <form action="/{{userID}}/board" method="POST"></form> --}}
-    {{!-- router.post('/:id/board/:boardId/logs', taskController.create) --}}
-</form>
+
+<div class="tile">
+    <div>
+        <form action="/logs" method="POST">
+            <input type="text" value="{{name}}" name="name" placeholder="{{name}}" disabled="disabled" class="input is-link is-medium">
+            <input type="text" name="completedBy" placeholder="Completed By:" class="input is-link is-medium">
+            <input type="date" name="date" class="input is-medium is-link">
+            <input type="text" name="notes" placeholder="Notes:" class="input is-link is-medium">
+            <button type="submit" class="button is-large is-link is-rounded">All Done</button>
+        </form>
+    </div>
 </div>
-<form action="/{{userID}}/board/{{board._id}}?_method=DELETE" method="POST">
-    <button type="submit">Delete This Board</button>
-</form>
+
+<section class="footer">
+    <span></span>
+    <form action="/{{userID}}/board/{{board._id}}?_method=DELETE" method="POST">
+        <button type="submit" class="button is-small is-danger is-rounded">Delete This Board</button>
+    </form>
+</section>

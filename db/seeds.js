@@ -5,37 +5,40 @@ const Log = require('../models/Log')
 
 const task1 = new Task({
     name: "Airways",
-    details: "presnet in adult small, med, large and ped"
+    details: "Present in adult small, medium, large, and pediatric"
 })
 const task2 = new Task({
     name: "Oxygen",
-    details: "present and level over 500"
+    details: "Present and level over 500"
 })
 const task3 = new Task({
     name: "Medication Drawer",
-    details: "locked and not expired"
+    details: "Locked and not expired"
 })
 const task4 = new Task({
     name: "Defibrillator",
-    details: "Checked on 20J and defib pads present"
+    details: "Checked on 20J and defib. pads present"
 })
 const task5 = new Task({
     name: "Monitors",
-    details: "charged and with all 3 cables present"
+    details: "Charged and with all 3 cables present"
 })
 const task6 = new Task({
     name: "Sheets",
-    details: "stocked in the cabinets"
+    details: "Stocked in the cabinets"
 })
 const task7 = new Task({
-    name: "TBDD",
-    details: "TBD"
+    name: "Backboard",
+    details: "Present and 3 straps"
 })
 const task8 = new Task({
-    name: "TBD",
-    details: "TBD"
+    name: "Bag",
+    details: "Gear bag present and sealed"
 })
-
+const task9 = new Task({
+    name: "Linen",
+    details: "2 sheets and 1 blanket"
+})
 
 const board1 = new Board({
     name: "Crash Cart Checklist",
@@ -46,8 +49,8 @@ const board2 = new Board({
     tasks: [task5, task6]
 })
 const board3 = new Board({
-    name: "Other Checklist",
-    tasks: [task7, task8]
+    name: "Stretcher Checklist",
+    tasks: [task7, task8, task9]
 })
 
 const stephaine = new User({
@@ -82,7 +85,7 @@ User.remove({})
     .then(() => Log.remove({}))
     .then(() => Board.remove({}))
     .then(() => Task.remove({}))
-    .then(() => Task.insertMany([task1, task2, task3, task4, task5, task6, task7, task8]))
+    .then(() => Task.insertMany([task1, task2, task3, task4, task5, task6, task7, task8, task9]))
     .then(() => Board.insertMany([board1, board2, board3]))
     .then(() => stephaine.save())
     .then(() => ashley.save())

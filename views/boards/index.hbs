@@ -1,5 +1,8 @@
-<p>BOARDS INDEX!!</p>
+
 <div>
+    <form action="/{{userID}}?_method=DELETE" method="POST">
+        <button type="submit" class="button is-small is-danger is-rounded">Delete This User </button>
+    </form>
     <a href="/"><button class="button is-small is-link is-rounded">Back</button></a>
     <a href="/{{userID}}/board/new"><button class="button is-small is-link is-rounded">New Board</button></a>
 
@@ -12,7 +15,7 @@
             </a>
 
             {{#each tasks}}
-            <p >{{name}}</p>
+            <p>{{name}}</p>
             {{/each}}
         </div>
     </div>

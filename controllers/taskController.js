@@ -4,7 +4,6 @@ const Task = require("../models/Task")
 
 const taskController = {
     index: (req, res) => {
-
     },
     new: (req, res) => {
         const userID = req.params.id
@@ -20,7 +19,6 @@ const taskController = {
                 returnedTask.save()
                 res.redirect(`/${userID}/board/${boardID}`)
             })
-
         })
 
     },
@@ -28,9 +26,7 @@ const taskController = {
         const boardID = req.params.boardId
         const userID = req.params.id
         const taskID = req.params.taskId
-
         res.render('task/show')
-
     },
 
     delete: (req, res) => {
