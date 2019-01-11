@@ -1,10 +1,10 @@
 {{#each user}}
-{{!-- <a href="/{{user._id}}/board"><button > See all Boards</button> </a> --}}
-<a href='{{_id}}/board'>
-    <h3>{{name}}</h3>
-</a>
+<section class="hero">
 
-    {{!-- {{#each boards}} 
-        <p>{{name}}</p>
-    {{/each}} --}}
+    <a href='{{_id}}/board'>
+
+        <button class="button is-outlined is-link is-large">{{name}}</button>
+    </a>
+
+</section>
 {{/each}}

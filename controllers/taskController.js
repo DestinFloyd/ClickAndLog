@@ -4,70 +4,43 @@ const Task = require("../models/Task")
 
 const taskController = {
     index: (req, res) => {
-        console.log("HI")
-        // const userID = req.params.id
-        // const boardID = req.params.boardId
-       
-        //     Users.findById(userID).populate('boards').then(
-        //     (returnedBoards) => {
-               
-        //     const boards = returnedBoards.boards
-        //     res.render('boards/index', { boards:boards, userID:userID })
-        // })
+
     },
     new: (req, res) => {
         const userID = req.params.id
         const boardID = req.params.boardId
-        res.render('task/new', {userID:userID, boardID:boardID})
+        res.render('task/new', { userID: userID, boardID: boardID })
     },
     create: (req, res) => {
         const userID = req.params.id
         const boardID = req.params.boardId
-        Board.findById(boardID).populate('tasks').then((returnedTask)=>{
-            Task.create(req.body).then((newTask)=>{
+        Board.findById(boardID).populate('tasks').then((returnedTask) => {
+            Task.create(req.body).then((newTask) => {
                 returnedTask.tasks.push(newTask)
                 returnedTask.save()
                 res.redirect(`/${userID}/board/${boardID}`)
             })
-            
-        }) 
+
+        })
 
     },
     show: (req, res) => {
         const boardID = req.params.boardId
         const userID = req.params.id
         const taskID = req.params.taskId
-        console.log("HI")
-        // Task.findById(taskID).then((thisTask) => {
-        //     const tasks = thisTask.tasks
-            res.render('task/show')
-        // }).catch((err) => {
-        //     console.log(err)
-        // })
+
+        res.render('task/show')
+
     },
-    // edit: (req, res) => {
-        
-    //     const userID = req.params.id
-    //     const boardID = req.params.boardId
-    //     res.render('boards/edit', {userID, boardID})
-    // },
-    // update: (req, res) => {
-    //     const userID = req.params.id
-    //     const boardID = req.params.boardId
-    //     // console.log(boardID)
-    //     Board.findByIdAndUpdate(boardID, req.body, {new: true})
-    //     .then((board) => {
-    //         res.redirect(`/${userID}/board/${boardID}`)
-    //     })
-    // },
+
     delete: (req, res) => {
         const userID = req.params.id
         const boardID = req.params.boardId
         const taskID = req.params.taskId
         Task.findByIdAndDelete(taskID)
-        .then(() => {
-            res.redirect(`/${userID}/board/${boardID}`)
-        })
+            .then(() => {
+                res.redirect(`/${userID}/board/${boardID}`)
+            })
     }
 }
 

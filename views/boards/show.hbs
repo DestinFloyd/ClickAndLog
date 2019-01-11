@@ -1,34 +1,30 @@
-<p>BOARDDDDD SHOW PAGE</p>
+<p>BOARDDDDD SHOW PAGE{{name}}</p>
 
-
-<a href="/{{userID}}/board/"><button>Back to Boards</button> </a>
-<a href="/{{userID}}/board/{{board._id}}/edit"><button>Edit Board</button></a>
-
-<a href="/{{userID}}/board/{{board._id}}/new"><button>Create a New Task</button></a>
+<a href="/{{userID}}/board/"><button class="button is-small is-link is-rounded">Back to Boards</button> </a>
+<a href="/{{userID}}/board/{{board._id}}/edit"><button class="button is-small is-link is-rounded">Edit Board</button></a>
+<a href="/{{userID}}/board/{{board._id}}/new"><button class="button is-small is-link is-rounded">Create a New Task</button></a>
 
 {{#each tasks}}
-
 </br>
 {{name}}:
 </br>
-
 <p> {{details}}</p>
-
-
-<button class="doneButton" >Done &#x21e7</button>
+<button class="doneButton button is-small is-success is-rounded">Done &#x21e7</button>
 <form action="/{{../userID}}/board/{{../board._id}}/{{_id}}?_method=DELETE" method="POST">
-    <button type="submit">Delete &#x21e7</button> 
+    <button class="button is-small is-danger is-rounded" type="submit">Delete &#x21e7</button>
 </form>
 
 {{/each}}
 
+<form action="/logs" method="POST">
+    <input type="text" value="{{name}}" name="name" placeholder="{{name}}" disabled="disabled">
+    <input type="text" name="completedBy" placeholder="Completed By:">
+    <input type="date" name="date">
+    <input type="text" name="notes" placeholder="notes:">
+    <button type="submit">All Done</button>
+    {{!-- <form action="/{{userID}}/board" method="POST"></form> --}}
+    {{!-- router.post('/:id/board/:boardId/logs', taskController.create) --}}
+</form>
 <form action="/{{userID}}/board/{{board._id}}?_method=DELETE" method="POST">
     <button type="submit">Delete This Board</button>
 </form>
-<form action="">
-    <input type="text" placeholder="Completed By:">
-    <input type="date" >
-</form>
-
-
-
