@@ -14,12 +14,16 @@
 </head>
 
 <body>
-  <ul>
-    <li><a href="/new">NewUser</a></li>
-    <li><a href="/">Home</a></li>
-    <li><a href="/logs">Logs</a></li>
-  </ul>
-    {{{body}}}
+  <nav class="navbar" role="navigation">
+    <div class="navbar-start">
+  
+    <a class="navbar-item" href="/">Home</a>
+    <a class="navbar-item" href="/new">NewUser</a>
+    <a class="navbar-item"href="/logs">Logs</a>
+  
+  </div>
+</nav> 
+ {{{body}}}
   <script>
     $(".doneButton").on("click", function () { $(this).prev("p").css("color", "red") })
   </script>

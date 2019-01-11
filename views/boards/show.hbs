@@ -15,7 +15,7 @@
 </form>
 
 {{/each}}
-
+<div>
 <form action="/logs" method="POST">
     <input type="text" value="{{name}}" name="name" placeholder="{{name}}" disabled="disabled">
     <input type="text" name="completedBy" placeholder="Completed By:">
@@ -25,6 +25,7 @@
     {{!-- <form action="/{{userID}}/board" method="POST"></form> --}}
     {{!-- router.post('/:id/board/:boardId/logs', taskController.create) --}}
 </form>
+</div>
 <form action="/{{userID}}/board/{{board._id}}?_method=DELETE" method="POST">
     <button type="submit">Delete This Board</button>
 </form>
