@@ -8,7 +8,7 @@ I have build Models, Users, which have Boards, and boards have tasks. Also Logs 
 
 **Site via Heroku**
 https://protected-atoll-41733.herokuapp.com/
-** Trello Board 
+**Trello Board** 
 https://trello.com/b/FITLymU4/project-2-mehn
 
 **WireFrame & ERD**
