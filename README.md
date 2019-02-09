@@ -11,9 +11,11 @@ https://protected-atoll-41733.herokuapp.com/
 **Trello Board** 
 https://trello.com/b/FITLymU4/project-2-mehn
 
-**WireFrame & ERD**
+**Pick From your checklist**
 ![pick your checklist](wireframes/pickYourChecklist.png)
+**Click off fields and log it**
 ![check and submit](wireframes/checkAndSubmit.png)
+**Check logs as needed**
 ![logs](wireframes/Logs.png)
 
 **A list of technologies, libraries, and/or frameworks used:**
