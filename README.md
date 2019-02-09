@@ -12,8 +12,9 @@ https://protected-atoll-41733.herokuapp.com/
 https://trello.com/b/FITLymU4/project-2-mehn
 
 **WireFrame & ERD**
-![wireframe](wireframes/WireFrame.jpg)
-![erd](wireframes/ERD.jpg)
+![pick your checklist](wireframes/pickYourChecklist.png)
+![check and submit](wireframes/checkAndSubmit.png)
+![logs](wireframes/Logs.png)
 
 **A list of technologies, libraries, and/or frameworks used:**
 - Bulma
