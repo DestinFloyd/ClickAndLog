@@ -1,13 +1,5 @@
 <div>
-    <div class="level">
-        <div class="level-right">
-            <div class="level-item">
-            <form action="/{{userID}}?_method=DELETE" method="POST">
-                <button type="submit" class="button is-small is-danger is-rounded">Delete This User </button>
-            </form>
-           </div>
-        </div>
-    </div>
+
     <a href="/"><button class="button is-small is-link is-rounded">Back</button></a>
     <a href="/{{userID}}/board/new"><button class="button is-small is-link is-rounded">New Board</button></a>
 
@@ -25,4 +17,16 @@
         </div>
     </div>
     {{/each}}
+
+
+    <div class="level">
+        <div class="level-right">
+            <div class="level-item">
+                <form action="/{{userID}}?_method=DELETE" method="POST">
+                    <button type="submit" class="button is-small is-danger is-rounded">Delete This User </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </div>
