@@ -9,10 +9,12 @@
     <article class="tile is-child notification is-info">
         <p class="title">{{name}}:</p>
         <p class="subtitle"> {{details}}</p>
+        <div class="level">
         <button class="doneButton button is-small is-success is-rounded">Done &#x21e7</button>
         <form action="/{{../userID}}/board/{{../board._id}}/{{_id}}?_method=DELETE" method="POST">
             <button class="button is-small is-danger is-rounded" type="submit">Delete &#x21e7</button>
         </form>
+        </div>
 </div>
 
 {{/each}}
@@ -29,7 +31,7 @@
     </div>
 </div>
 
-<section class="footer">
+<section class="footer level">
     <span></span>
     <form action="/{{userID}}/board/{{board._id}}?_method=DELETE" method="POST">
         <button type="submit" class="button is-small is-danger is-rounded">Delete This Board</button>

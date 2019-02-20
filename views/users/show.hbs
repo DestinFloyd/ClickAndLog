@@ -1,4 +1,4 @@
-<p> THIS IS A SHOW PAGE</p>
+
 
 <a href="/{{user._id}}/edit"><button>Edit User Name</button></a>
 <a href="/{{user._id}}/board"><button> See all Boards</button> </a>
@@ -6,6 +6,7 @@
 {{#each boards}}
 <p>{{name}}</p>
 {{/each}}
+
 <form action="/{{user._id}}?_method=DELETE" method="POST">
     <button type="submit">Delete</button>
 </form>
